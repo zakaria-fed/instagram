@@ -1,0 +1,25 @@
+.navbar {
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid rgb(212, 212, 212);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo {
+    object-fit: contain;
+    height: 90px;
+}
+
+.navbar__right {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.navbar__right > .MuiSvgIcon-root, .navbar__right > div {
+    font-size: 35px;
+    margin-left: 15px;
+}
