@@ -1,0 +1,21 @@
+.stories {
+    padding: 15px 0;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid rgb(212, 212, 212);
+
+    display: flex;
+    justify-content: left;
+    justify-items: center;
+
+    width: 611.33px;
+
+    text-align: center;
+}
+
+.storyReel {
+    width: 100%;
+}

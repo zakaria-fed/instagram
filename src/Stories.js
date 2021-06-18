@@ -12,19 +12,19 @@ function Stories() {
       />
       <StoryReel
         image="https://images.pexels.com/photos/7440281/pexels-photo-7440281.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="zakaria"
+        name="salma"
       />
       <StoryReel
         image="https://images.pexels.com/photos/8264620/pexels-photo-8264620.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="zakaria"
+        name="mama"
       />
       <StoryReel
         image="https://images.pexels.com/photos/6789847/pexels-photo-6789847.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="zakaria"
+        name="baba"
       />
       <StoryReel
         image="https://images.pexels.com/photos/6826295/pexels-photo-6826295.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        name="zakaria"
+        name="ayoub"
       />
     </div>
   );

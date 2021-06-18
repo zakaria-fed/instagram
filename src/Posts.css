@@ -1,0 +1,117 @@
+.posts {
+    margin-top: 60px;
+    margin-left: auto;
+
+    background-color: white;
+    border: 1px solid #efefef;
+    border-radius: 8px;
+    box-shadow: 0 -7px 14px rgba(0, 0, 0, .4);
+
+    width: 30rem;
+}
+
+.posts__top {
+    padding: 15px 25px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.posts__top .MuiAvatar-root {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+.posts__top > .MuiSvgIcon-root:hover {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #efefef;
+
+    transition: .4s;
+
+    border-radius: 50%;
+}
+
+.post__infos {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: left;
+    width: 100%;
+    flex: 100%;
+}
+
+.post__infos h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.post__infos p {
+    margin: 0;
+    font-size: smaller;
+}
+
+.posts__image {
+    height: 650px;
+    width: 100%;
+
+    background-size: cover !important;
+}
+
+.posts__footer {
+    padding: 10px 7px 0 7px;
+    width: 100%;
+}
+
+.posts__react {
+    display: flex;
+    justify-content: space-around;
+}
+
+.posts__react__left, .posts__react__right {
+    width: 100%;
+}
+
+.posts__react__left {
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.posts__react__left > svg, .posts__react__right > svg {
+    color: rgb(39, 39, 39);
+    font-size: x-large;
+    margin-right: 15px;
+}
+
+.posts__react__left > svg:hover, .posts__react__right > svg:hover {
+    cursor: pointer;
+}
+
+.posts__react__right {
+    padding-right: 10px;
+    text-align: right;
+}
+
+.posts__message {
+    padding: 10px 15px;
+}
+
+.posts__message h6, .message {
+    font-size: small;
+    display: inline;
+}
+
+.message {
+    margin-left: 10px;
+}
+
+.timestamp {
+    margin-top: 8px;
+    color: rgb(95, 95, 95);
+    font-weight: 200;
+    text-transform: uppercase;
+}

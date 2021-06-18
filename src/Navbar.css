@@ -3,9 +3,15 @@
     background-color: white;
     border-bottom: 1px solid rgb(212, 212, 212);
 
+    box-shadow: 0 5px 4px rgba(0, 0, 0, .1);
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -22,4 +28,8 @@
 .navbar__right > .MuiSvgIcon-root, .navbar__right > div {
     font-size: 35px;
     margin-left: 15px;
+}
+
+.navbar__right > .MuiSvgIcon-root:hover, .navbar__right > .MuiAvatar-root:hover {
+    cursor: pointer;
 }
