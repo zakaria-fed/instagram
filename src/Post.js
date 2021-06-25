@@ -9,7 +9,7 @@ import TurnedInNotOutlinedIcon from "@material-ui/icons/TurnedInNotOutlined";
 
 import "./Posts.css";
 
-function Post({ profile, name, location, image, message, timestamp, key }) {
+function Post({ profile, name, location, image, message, key }) {
   return (
     <div key={key} className="post">
       <div className="posts__top">
