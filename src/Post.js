@@ -4,14 +4,14 @@ import { Avatar } from "@material-ui/core";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import CommentIcon from "@material-ui/icons/Comment";
-import IosShareOutlinedIcon from "@material-ui/icons/IosShareOutlined";
+import ShareIcon from '@material-ui/icons/Share';
 import TurnedInNotOutlinedIcon from "@material-ui/icons/TurnedInNotOutlined";
 
 import "./Posts.css";
 
-function Posts({ profile, name, location, image, message, timestamp }) {
+function Post({ profile, name, location, image, message, timestamp, key }) {
   return (
-    <div className="posts">
+    <div key={key} className="post">
       <div className="posts__top">
         <Avatar src={profile} />
         <div className="post__infos">
@@ -29,7 +29,7 @@ function Posts({ profile, name, location, image, message, timestamp }) {
           <div className="posts__react__left">
             <FavoriteBorderIcon />
             <CommentIcon />
-            <IosShareOutlinedIcon />
+            <ShareIcon />
           </div>
           <div className="posts__react__right">
             <TurnedInNotOutlinedIcon />
@@ -41,11 +41,12 @@ function Posts({ profile, name, location, image, message, timestamp }) {
             <b>{name}</b>
           </h6>
           <p className="message">{message}</p>
-          <p className="timestamp">{timestamp}</p>
+          <p className="timestamp">
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Posts;
+export default Post;
