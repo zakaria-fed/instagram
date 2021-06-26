@@ -29,9 +29,7 @@ function LeftSide() {
         ? "Loading ..."
         : posts.map((post) => (
             <Post
-              profile={post.data.imageURL}
               name={post.data.username}
-              location={post.data.location}
               image={post.data.imageURL}
               message={post.data.caption}
               key={post.id}

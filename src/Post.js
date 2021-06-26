@@ -9,14 +9,13 @@ import TurnedInNotOutlinedIcon from "@material-ui/icons/TurnedInNotOutlined";
 
 import "./Posts.css";
 
-function Post({ profile, name, location, image, message, key }) {
+function Post({ name, image, message, key }) {
   return (
     <div key={key} className="post">
       <div className="posts__top">
-        <Avatar src={profile} />
+        <Avatar />
         <div className="post__infos">
           <h6>{name}</h6>
-          <p>{location}</p>
         </div>
         <MoreHorizIcon />
       </div>

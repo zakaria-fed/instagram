@@ -2,6 +2,7 @@ import { Button, Input, makeStyles, Modal } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { auth } from "./firebase";
+import ImageUpload from "./ImageUpload";
 import Main from "./Main";
 import Navbar from "./Navbar";
 
@@ -68,7 +69,7 @@ function App() {
 
     auth
       .signInWithEmailAndPassword(email1, password1)
-      .then(authUser => setUser(authUser))
+      .then((authUser) => setUser(authUser))
       .catch((err) => alert(err.message));
 
     setOpen2(false);
@@ -163,7 +164,7 @@ function App() {
 
       <Modal open={open2} onClose={() => setOpen2(false)}>
         <div style={modalStyle} className={classes.paper}>
-          <form className="app__signup">
+          <form className="app__signin">
             <center>
               <img
                 src="https://1000logos.net/wp-content/uploads/2017/02/Instagram-Logo-500x313.png"
@@ -187,7 +188,7 @@ function App() {
           </form>
 
           <Button type="submit" onClick={signIn}>
-            Sign up
+            Sign In
           </Button>
         </div>
       </Modal>
