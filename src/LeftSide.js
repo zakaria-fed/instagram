@@ -11,12 +11,16 @@ function LeftSide() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => ({
-        id: doc.id,
-        data: doc.data()
-      })));
-    });
+    db.collection("posts")
+      .orderBy("timeStamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+      });
   }, []);
 
   return (
@@ -33,6 +37,7 @@ function LeftSide() {
               image={post.data.imageURL}
               message={post.data.caption}
               key={post.id}
+              postId={post.id}
             />
           ))}
       {console.log(posts)}
