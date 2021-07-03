@@ -12,7 +12,7 @@ function RightSide() {
     <div className="rightSide">
       <div className="container">
         <div className="rightSide__switch">
-          <Avatar src={val.photoURL} />
+          <Avatar src={val.photoURL !== undefined && val.photoURL} />
           <div className="rightSide__infos">
             <h6 className="infos__name">{val[0].displayName}</h6>
             <h6 className="infos__username">{val[0].email}</h6>

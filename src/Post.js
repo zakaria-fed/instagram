@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import userContext from "./userContext";
 import { Avatar, Modal } from "@material-ui/core";
 import { Button, Input, makeStyles } from "@material-ui/core";
@@ -6,7 +6,6 @@ import { Button, Input, makeStyles } from "@material-ui/core";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import CommentIcon from "@material-ui/icons/Comment";
-import ShareIcon from "@material-ui/icons/Share";
 import TurnedInNotOutlinedIcon from "@material-ui/icons/TurnedInNotOutlined";
 
 // List Material Ui
@@ -77,6 +76,7 @@ function Post({ name, image, message, postId }) {
   };
 
   const nameOfUser = useContext(userContext)[0].displayName;
+  const backgroundFocusRef = useRef(null);
 
   useEffect(() => {
     db.collection("posts")
@@ -102,17 +102,19 @@ function Post({ name, image, message, postId }) {
           }))
         );
       });
-  }, []);
+  }, [comments, likes]);
 
   const likeClicked = () => {
-    // if(likes) {
+    const userExist = likes.filter((like) => like.data.username === nameOfUser);
 
-    // }
-
-    db.collection("posts").doc(postId).collection("likes").add({
-      username: nameOfUser,
-    });
-    window.removeEventListener('click', likeClicked, true);
+    if (userExist.length === 0) {
+      db.collection("posts").doc(postId).collection("likes").add({
+        username: nameOfUser,
+      });
+      backgroundFocusRef.current.focus();
+    } else {
+      console.log(userExist);
+    }
   };
 
   return (
@@ -125,6 +127,7 @@ function Post({ name, image, message, postId }) {
         <MoreHorizIcon />
       </div>
       <div
+        ref={backgroundFocusRef}
         className="posts__image"
         style={{ background: `url(${image}) no-repeat center` }}
       ></div>
@@ -135,7 +138,6 @@ function Post({ name, image, message, postId }) {
             <span onClick={handleOpen}>{likes.length}</span>
             <CommentIcon />
             <span>{comments.length}</span>
-            <ShareIcon />
           </div>
           <div className="posts__react__right">
             <TurnedInNotOutlinedIcon />
@@ -155,7 +157,6 @@ function Post({ name, image, message, postId }) {
                   <ListItemText inset primary={like.data.username} />
                 </ListItem>
               ))}
-              {console.log(likes)}
             </div>
           </Modal>
         </div>

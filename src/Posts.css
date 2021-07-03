@@ -71,6 +71,23 @@
   background-size: cover !important;
 }
 
+.posts__image:focus {
+  animation: 1s bluring;
+  animation-timing-function: ease-out;
+}
+
+@keyframes bluring {
+  0% {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(2.5px);
+  }
+  100% {
+    filter: blur(5px);
+  }
+}
+
 .posts__footer {
   padding: 10px 7px 0 7px;
   width: 100%;
@@ -102,12 +119,19 @@
 .posts__react__left > svg:hover,
 .posts__react__right > svg:hover {
   cursor: pointer;
+  color: red;
+
 }
 
 .posts__react__left > span {
   margin: 0 5px;
   color: lightslategray;
-  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+    sans-serif;
+}
+
+.posts__react__left > span:hover {
+  cursor: pointer;
 }
 
 .posts__react__right {
