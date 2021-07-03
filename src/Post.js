@@ -75,6 +75,10 @@ function Post({ name, image, message, postId }) {
     setOpen(false);
   };
 
+  // Comment
+  const [comment, setComment] = useState("");
+  const commentRef = useRef(null);
+
   const nameOfUser = useContext(userContext)[0].displayName;
   const backgroundFocusRef = useRef(null);
 
@@ -94,6 +98,7 @@ function Post({ name, image, message, postId }) {
     db.collection("posts")
       .doc(postId)
       .collection("likes")
+      .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
         setLikes(
           snapshot.docs.map((doc) => ({
@@ -117,6 +122,31 @@ function Post({ name, image, message, postId }) {
     }
   };
 
+  const commentClicked = () => {
+    commentRef.current.style = {
+      display: "block",
+    };
+  };
+
+  const submitComment = (e) => {
+    e.preventDefault();
+
+    const newComment = comment.trim();
+
+    if (newComment !== "") {
+      db.collection("posts")
+        .doc(postId)
+        .collection("comments")
+        .add({
+          username: nameOfUser,
+          comment: newComment,
+        })
+        .catch((err) => alert(err.message));
+
+      setComment("");
+    }
+  };
+
   return (
     <div className="post">
       <div className="posts__top">
@@ -136,7 +166,7 @@ function Post({ name, image, message, postId }) {
           <div className="posts__react__left">
             <FavoriteBorderIcon onClick={likeClicked} />
             <span onClick={handleOpen}>{likes.length}</span>
-            <CommentIcon />
+            <CommentIcon onClick={commentClicked} />
             <span>{comments.length}</span>
           </div>
           <div className="posts__react__right">
@@ -175,6 +205,27 @@ function Post({ name, image, message, postId }) {
                 <b>{comm.data.username}</b> {comm.data.comment}
               </p>
             ))}
+          <form
+            className="commentForm"
+            ref={commentRef}
+            style={{ display: "none" }}
+          >
+            <Input
+              placeholder="Enter a Comment"
+              className="input__comment"
+              onChange={(e) => setComment(e.target.value)}
+              value={comment}
+            />
+            <Button
+              onClick={submitComment}
+              color="primary"
+              variant="contained"
+              type="submit"
+              className="submitCommentButt"
+            >
+              Send
+            </Button>
+          </form>
         </div>
       </div>
     </div>

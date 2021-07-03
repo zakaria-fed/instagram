@@ -159,3 +159,18 @@
   font-weight: 200;
   text-transform: uppercase;
 }
+
+.input__comment {
+  flex: .9;
+}
+
+.commentForm {
+  margin-top: 15px;
+  
+  display: flex;
+  width: 100%;
+}
+
+.submitCommentButt {
+  flex: .1;
+}
