@@ -40,7 +40,6 @@ function LeftSide() {
               postId={post.id}
             />
           ))}
-      {console.log(posts)}
     </div>
   );
 }

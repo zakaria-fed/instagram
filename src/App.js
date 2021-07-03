@@ -81,7 +81,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         // User has logged in
-        console.log(authUser);
         setUser(authUser);
       } else {
         // User has logged out
@@ -181,15 +180,21 @@ function App() {
             />
             <Input
               placeholder="Password"
-              type="text"
+              type="password"
               value={password1}
               onChange={(e) => setPassword1(e.target.value)}
             />
+            <br />
+            <br />
+            <Button
+              color="primary"
+              variant="contained"
+              type="submit"
+              onClick={signIn}
+            >
+              Sign In
+            </Button>
           </form>
-
-          <Button type="submit" onClick={signIn}>
-            Sign In
-          </Button>
         </div>
       </Modal>
 

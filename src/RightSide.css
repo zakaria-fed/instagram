@@ -1,63 +1,77 @@
 .rightSide {
-    width: 50%;
-    position: relative;
+  width: 50%;
+  position: relative;
 }
 
 .container {
-    position: sticky;
-    top: 140px;
+  position: sticky;
+  top: 140px;
 
-    margin-left: 90px;
+  margin-left: 90px;
 
-    width: 400px;
+  width: 400px;
 }
 
 .rightSide__switch {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .rightSide__switch .MuiAvatar-root {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 .rightSide__infos {
-    padding: 0;
-    margin-left: 25px;
+  padding: 0;
+  margin-left: 25px;
 
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 
-    height: 60px;
+  height: 60px;
 }
 
 .rightSide__infos > h6 {
-    margin: 0;
-    flex-basis: 50%;
+  margin: 0;
+  flex-basis: 50%;
 }
 
 .infos__name {
-    line-height: 3.6;
+  line-height: 3.6;
 }
 
 .infos__username {
-    line-height: 0.01;
-    color: rgb(88, 88, 88);
-    font-weight: 500;
+  line-height: 0.01;
+  color: rgb(88, 88, 88);
+  font-weight: 500;
 }
 
 .action {
-    width: 50%;
-    text-align: right;
+  width: 50%;
+  text-align: right;
 }
 
 .action > small {
-    font-weight: 500;
-    color: rgb(0, 161, 214);
+  font-weight: 500;
+  color: rgb(0, 161, 214);
 }
 
 .action > small:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .rightSide {
+    display: none;
+  }
+  .leftSide {
+      flex: 1;
+      width: 100%;
+      margin-right: 70px;
+  }
+  .leftSide > div {
+      justify-content: center !important;
+  }
 }

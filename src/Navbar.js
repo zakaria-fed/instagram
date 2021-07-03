@@ -1,17 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { Avatar, Button, makeStyles, Modal } from "@material-ui/core";
+
 import "./Navbar.css";
 
-import { Avatar } from "@material-ui/core";
-
-import HomeIcon from "@material-ui/icons/Home";
-import SendIcon from "@material-ui/icons/Send";
-import ExploreIcon from "@material-ui/icons/Explore";
-import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
-
 import userContext from "./userContext";
+import { auth } from "./firebase";
+
+function getModalStyle() {
+  const top = 50;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    position: "absolute",
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
 function Navbar() {
   const val = useContext(userContext);
+  const [open, setOpen] = useState(false);
+
+  // Modal
+  const classes = useStyles();
+  const [modalStyle] = useState(getModalStyle);
 
   return (
     <div className="navbar">
@@ -23,12 +46,28 @@ function Navbar() {
       />
 
       <div className="navbar__right">
-        <HomeIcon />
-        <SendIcon />
-        <ExploreIcon />
-        <FavoriteBorderOutlinedIcon />
-        <Avatar src={val[0].photoURL !== null ? val[0].photoURL : ""} />
+        <Avatar
+          onClick={() => setOpen(true)}
+          src={val[0].photoURL !== null ? val[0].photoURL : ""}
+        />
       </div>
+
+      {/* Modal */}
+
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div style={modalStyle} className={classes.paper}>
+          <h5>Click the Button to log out</h5>
+          <hr />
+          <Button
+            color="secondary"
+            variant="contained"
+            type="submit"
+            onClick={() => auth.signOut()}
+          >
+            Log Out
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 }
